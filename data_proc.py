@@ -1,8 +1,11 @@
 import os
 from matplotlib import pyplot as plt
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
+import torchvision
 import torchvision.transforms as transforms
 from PIL import Image, ImageDraw, ImageFont
-import sys
 import random
 import pandas as pd
 
