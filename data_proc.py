@@ -84,7 +84,7 @@ def get_all_img_path(root_folder, label_lookup):
             img_path.append(path)
     return img_path
 
-df = pd.read_csv('/content/gdrive/MyDrive/CSC413/label_lookup.csv', header = None)
+df = pd.read_csv('~/russell/google-landmark/413ProjectSync/label_lookup.csv', header = None)
 label_lookup = {}
 for row in df.index:
     label = df[1][row] 
