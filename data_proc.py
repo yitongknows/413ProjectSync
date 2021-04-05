@@ -82,7 +82,6 @@ def get_all_img_path(root_folder, label_lookup):
         print(path)
         if os.path.exists(path):
             img_path.append(path)
-        break
     return img_path
 
 df = pd.read_csv('~/russell/google-landmark/413ProjectSync/label_lookup.csv', header = None)
@@ -94,7 +93,8 @@ for row in df.index:
 print(len(label_lookup))
 
 img_path = get_all_img_path("../train", label_lookup)
-print(img_path[0])
+print('# of all images: {}'.format(len(img_path)))
+print('example path: {}'.format(img_path[0]))
 
 transform = transforms.Compose(
     [transforms.ToTensor()
