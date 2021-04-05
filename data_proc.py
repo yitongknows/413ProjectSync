@@ -93,7 +93,7 @@ for row in df.index:
     label_lookup[images] = label
 print(len(label_lookup))
 
-img_path = get_all_img_path("~/russell/google-landmark/train", label_lookup)
+img_path = get_all_img_path("../train", label_lookup)
 print(img_path[0])
 
 transform = transforms.Compose(
