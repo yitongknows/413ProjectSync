@@ -79,7 +79,7 @@ def get_all_img_path(root_folder, label_lookup):
         path = os.path.join(path, img[1])
         path = os.path.join(path, img[2])
         path = os.path.join(path, img)
-        print(path)
+        #print(path)
         if os.path.exists(path):
             img_path.append(path)
     return img_path
@@ -90,7 +90,7 @@ for row in df.index:
     label = df[1][row] 
     images = df[0][row]
     label_lookup[images] = label
-print(len(label_lookup))
+print('# of images in lookup: {}'.format(len(label_lookup)))
 
 img_path = get_all_img_path("../train", label_lookup)
 print('# of all images: {}'.format(len(img_path)))
