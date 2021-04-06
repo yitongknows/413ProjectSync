@@ -32,9 +32,9 @@ class LandmarkDataset(torch.utils.data.Dataset):
         return len(self.img_list)
 
     def getLabel(self, path):
-        name = path.split('/')[-1]
-        if name in label_lookup:
-            label = label_lookup[name]
+        img_name = path.split('/')[-1]
+        if img_name in label_lookup:
+            label = label_lookup[img_name]
         else:
             label = -1
             
