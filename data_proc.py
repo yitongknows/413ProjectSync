@@ -74,6 +74,8 @@ class LandmarkDataset(torch.utils.data.Dataset):
 
 def get_all_img_path(root_folder, label_lookup):
     img_path = []
+    length = len(label_lookup)
+    counter = 1
     for img in label_lookup.keys():
         path = os.path.join(root_folder, img[0])
         path = os.path.join(path, img[1])
@@ -82,6 +84,10 @@ def get_all_img_path(root_folder, label_lookup):
         #print(path)
         if os.path.exists(path):
             img_path.append(path)
+        
+        if counter % 10000 == 0:
+            print('{}/{}'.format(counter, length))
+        counter += 1
     return img_path
 
 df = pd.read_csv('~/russell/google-landmark/413ProjectSync/label_lookup.csv', header = None)
