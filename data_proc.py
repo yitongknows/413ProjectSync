@@ -92,13 +92,22 @@ def get_all_img_path(root_folder, label_lookup):
 
 df = pd.read_csv('~/russell/google-landmark/413ProjectSync/label_lookup.csv', header = None)
 label_lookup = {}
+img_path = []
 for row in df.index:
     label = df[1][row] 
     images = df[0][row]
     label_lookup[images] = label
+
+    path = os.path.join("../train", images[0])
+    path = os.path.join(path, images[1])
+    path = os.path.join(path, images[2])
+    path = os.path.join(path, images)
+
+    # if os.path.exists(path):
+    img_path.append(path)
 print('# of images in lookup: {}'.format(len(label_lookup)))
 
-img_path = get_all_img_path("../train", label_lookup)
+#img_path = get_all_img_path("../train", label_lookup)
 print('# of all images: {}'.format(len(img_path)))
 print('example path: {}'.format(img_path[0]))
 
